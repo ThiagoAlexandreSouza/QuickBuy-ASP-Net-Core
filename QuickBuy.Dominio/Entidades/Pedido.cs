@@ -11,14 +11,15 @@ namespace QuickBuy.Dominio.Entidades
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
         public int UsuarioId { get; set; }
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual ICollection<ItemPedido> ItensPedido { get; set; }
         public DateTime DataPrevisaoEntrega { get; set; }
         public string CEP { get; set; }
         public string Cidade { get; set; }
         public string EnderecoCompleto { get; set; }
         public int NumeroEndereco { get; set; }
         public int FormaPagamentoId { get; set; }
-        public FormaDePagamento FormaPagamento { get; set; }
+        public virtual FormaDePagamento FormaPagamento { get; set; }
 
         public override void Validate()
         {
