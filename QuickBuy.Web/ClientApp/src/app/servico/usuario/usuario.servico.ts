@@ -22,7 +22,7 @@ export class UsuarioServico {
       senha: usuario.senha
     }
 
-    return this.http.post<Usuario>(this.baseURL + "api/usuario", body, { headers })
+    return this.http.post<Usuario>(this.baseURL + "api/usuario/verificarusuario", body, { headers })
   }
 
 }

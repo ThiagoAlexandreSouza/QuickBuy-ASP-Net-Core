@@ -11,6 +11,7 @@ import { UsuarioServico } from "../../servico/usuario/usuario.servico";
 export class LoginComponent implements OnInit {
   public usuario;
   public returnUrl: string;
+  public mensagem: string;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute, private usuarioServico: UsuarioServico) {
   }
@@ -24,10 +25,22 @@ export class LoginComponent implements OnInit {
 
     this.usuarioServico.VerificarUsuario(this.usuario).subscribe(
       data => {
+        var usuarioRetorno: Usuario;
+        usuarioRetorno = data;
+        sessionStorage.setItem("usuario-autenticado", "1");
+        sessionStorage.setItem("email-usuario", usuarioRetorno.email);
 
+        alert(this.returnUrl);
+        if (this.returnUrl == null) {
+          this.router.navigate(['/']);
+        }
+        else {
+          this.router.navigate([this.returnUrl]);
+        }
+        
       },
       err => {
-
+        this.mensagem = err.error;
       }
     );
     
