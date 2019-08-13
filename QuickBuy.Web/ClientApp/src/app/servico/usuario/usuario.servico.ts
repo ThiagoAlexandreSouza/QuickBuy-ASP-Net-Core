@@ -2,7 +2,6 @@ import { Injectable, Inject } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Usuario } from "../../modelo/usuario";
-import { Session } from "inspector";
 import { Jsonp } from "@angular/http";
 
 @Injectable({
